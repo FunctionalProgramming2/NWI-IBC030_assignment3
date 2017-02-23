@@ -29,3 +29,15 @@ exercise 4.1
 
 > cons :: elem -> ListRef elem -> IO (ListRef elem)
 > cons e l = newIORef $ Cons e l
+
+exercise 4.2
+============
+
+> fromList :: [elem] -> IO (ListRef elem)
+> fromList [] = nil
+> fromList (e:es) = fromList es >>= cons e
+
+> toList :: ListRef elem -> IO [elem]
+> toList r = readIORef r >>= \result -> case result of
+>     Nil -> return []
+>     (Cons el r) -> toList r >>= \tail -> return $ el : tail
