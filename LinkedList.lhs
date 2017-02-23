@@ -41,3 +41,11 @@ exercise 4.2
 > toList r = readIORef r >>= \result -> case result of
 >     Nil -> return []
 >     (Cons el r) -> toList r >>= \tail -> return $ el : tail
+
+exercise 4.3
+============
+
+> foreach :: ListRef a -> (a -> IO b) -> IO (ListRef b)
+> foreach r a = readIORef r >>= \l -> case l of
+>     Nil -> nil
+>     (Cons el ref) -> foreach ref a >>= \tail -> a el >>= \e -> cons e tail
