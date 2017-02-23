@@ -37,6 +37,11 @@ author: Anna Töskés s1005628
 > data Mode = Encrypt | Decrypt
 >     deriving (Eq, Read, Show)
 
+> ceasar :: Mode -> String -> [Int] -> String
+> ceasar m cs rs
+>     | m == Encrypt = zipWith shift cs rs
+>     | otherwise = zipWith shift cs $ map negate rs
+
 > shift :: Char -> Int -> Char
 > shift a r
 >     | inta < 32 = a
