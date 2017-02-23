@@ -20,3 +20,12 @@
 --------------------------------------------------------------------------------
 author: Hendrik Werner s4549775
 author: Anna Töskés s1005628
+
+exercise 4.1
+============
+
+> nil :: IO (ListRef elem)
+> nil = newIORef Nil
+
+> cons :: elem -> ListRef elem -> IO (ListRef elem)
+> cons e l = newIORef $ Cons e l
