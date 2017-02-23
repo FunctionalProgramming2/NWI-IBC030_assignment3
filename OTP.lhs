@@ -31,6 +31,9 @@ author: Anna Töskés s1005628
 >   print rs
 >   putStrLn ("average: " ++ show (sum rs `div` n))
 
+> data Mode = Encrypt | Decrypt
+>     deriving (Eq, Read, Show)
+
 > shift :: Char -> Int -> Char
 > shift a r
 >     | inta < 32 = a
