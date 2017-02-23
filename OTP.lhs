@@ -29,7 +29,7 @@ author: Anna Töskés s1005628
 >   let mode = read $ capitalize md :: Mode
 >   inContent <- readFile input
 >   let inSize = length inContent
->   rs <- sequence (replicate inSize roll)
+>   let rs = randomRs (1, 127) (mkStdGen 4711)
 >   writeFile output $ ceasar mode inContent rs
 
 > capitalize :: String -> String
