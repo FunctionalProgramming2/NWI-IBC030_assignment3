@@ -25,11 +25,12 @@ author: Anna Töskés s1005628
 > main :: IO ()
 > main = do
 >   setStdGen (mkStdGen 4711)
->   (arg : _) <- getArgs
->   let n = read arg :: Int
->   rs <- sequence (replicate n roll)
->   print rs
->   putStrLn ("average: " ++ show (sum rs `div` n))
+>   (md : input : output : _) <- getArgs
+>   let mode = read $ capitalize md :: Mode
+>   inContent <- readFile input
+>   let inSize = length inContent
+>   rs <- sequence (replicate inSize roll)
+>   writeFile output $ ceasar mode inContent rs
 
 > capitalize :: String -> String
 > capitalize (c:cs) = toUpper c : map toLower cs
