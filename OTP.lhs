@@ -8,6 +8,7 @@ ghc --make OTP.lhs
 > import Unicode ()
 > import System.Random
 > import System.Environment
+> import Data.Char
 
 > dice :: IO Int
 > dice = getStdRandom (randomR (1,6))
@@ -29,3 +30,9 @@ author: Anna Töskés s1005628
 >   rs <- sequence (replicate n roll)
 >   print rs
 >   putStrLn ("average: " ++ show (sum rs `div` n))
+
+> shift :: Char -> Int -> Char
+> shift a r
+>     | inta < 32 = a
+>     | otherwise = chr . (+32) $ (inta - 32 + r) `mod` (128 - 32)
+>     where inta = ord a
