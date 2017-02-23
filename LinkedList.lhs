@@ -48,4 +48,6 @@ exercise 4.3
 > foreach :: ListRef a -> (a -> IO b) -> IO (ListRef b)
 > foreach r a = readIORef r >>= \l -> case l of
 >     Nil -> nil
->     (Cons el ref) -> foreach ref a >>= \tail -> a el >>= \e -> cons e tail
+>     (Cons el ref) -> do tail <- foreach ref a
+>                         elem <- a el
+>                         cons elem tail
