@@ -31,6 +31,9 @@ author: Anna Töskés s1005628
 >   print rs
 >   putStrLn ("average: " ++ show (sum rs `div` n))
 
+> capitalize :: String -> String
+> capitalize (c:cs) = toUpper c : map toLower cs
+
 > data Mode = Encrypt | Decrypt
 >     deriving (Eq, Read, Show)
 
