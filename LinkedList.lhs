@@ -16,3 +16,7 @@
 < toList   ∷ ListRef elem → IO [elem]
 
 < foreach ∷ ListRef a → (a → IO b) → IO (ListRef b)
+
+--------------------------------------------------------------------------------
+author: Hendrik Werner s4549775
+author: Anna Töskés s1005628
