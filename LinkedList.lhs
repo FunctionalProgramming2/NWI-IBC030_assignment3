@@ -40,7 +40,8 @@ exercise 4.2
 > toList :: ListRef elem -> IO [elem]
 > toList r = readIORef r >>= \result -> case result of
 >     Nil -> return []
->     (Cons el r) -> toList r >>= \tail -> return $ el : tail
+>     (Cons el r) -> do tail <- toList r
+>                       return $ el : tail
 
 exercise 4.3
 ============
