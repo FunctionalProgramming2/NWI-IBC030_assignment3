@@ -12,3 +12,7 @@
 > roll  =  do  a ← dice
 >              b ← dice
 >              return (a + b)
+
+--------------------------------------------------------------------------------
+author: Hendrik Werner s4549775
+author: Anna Töskés s1005628
