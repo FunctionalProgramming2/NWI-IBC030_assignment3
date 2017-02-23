@@ -28,7 +28,6 @@ author: Anna Töskés s1005628
 >   (md : input : output : _) <- getArgs
 >   let mode = read $ capitalize md :: Mode
 >   inContent <- readFile input
->   let inSize = length inContent
 >   let rs = randomRs (1, 127) (mkStdGen 4711)
 >   writeFile output $ ceasar mode inContent rs
 
